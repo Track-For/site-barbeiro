@@ -32,20 +32,38 @@ createApp({
           icon: 'bi bi-scissors',
           title: 'Cortes modernos',
           description: 'Do clássico ao contemporâneo, um corte desenhado para valorizar seus traços e sua rotina.',
-          details: ['Consultoria de estilo', 'Degradê e cortes clássicos', 'Finalização profissional'],
+          image: 'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1100&q=88',
+          alt: 'Barbeiro realizando um corte masculino com atenção aos detalhes',
         },
         {
           icon: 'bi bi-person',
           title: 'Barba & alinhamento',
           description: 'Contorno preciso, volume equilibrado e cuidado completo para uma barba bem apresentada.',
-          details: ['Desenho personalizado', 'Toalha quente', 'Produtos de cuidado'],
+          image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1100&q=88',
+          alt: 'Cliente recebendo um serviço profissional de barba',
         },
         {
           icon: 'bi bi-stars',
           title: 'Acabamento premium',
           description: 'Os últimos detalhes que transformam um bom visual em uma presença marcante.',
-          details: ['Pezinho e contorno', 'Sobrancelha', 'Finalização com styling'],
+          image: 'https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?auto=format&fit=crop&w=1100&q=88',
+          alt: 'Profissional finalizando o visual de um cliente na barbearia',
         },
+      ],
+      serviceMenu: [
+        { name: 'Corte personalizado', duration: '40 min', icon: 'bi bi-scissors' },
+        { name: 'Corte infantil', duration: '40 min', icon: 'bi bi-emoji-smile' },
+        { name: 'Barba completa', duration: '35 min', icon: 'bi bi-person' },
+        { name: 'Corte + barba', duration: '70 min', icon: 'bi bi-stars' },
+        { name: 'Pezinho e acabamento', duration: '15 min', icon: 'bi bi-bounding-box' },
+        { name: 'Design de sobrancelha', duration: '15 min', icon: 'bi bi-eye' },
+        { name: 'Hidratação capilar', duration: '30 min', icon: 'bi bi-droplet' },
+        { name: 'Camuflagem de brancos', duration: '40 min', icon: 'bi bi-palette' },
+      ],
+      experiencePoints: [
+        { icon: 'bi bi-ear', title: 'Escuta de verdade', text: 'Entendemos sua rotina, suas referências e o resultado que você procura antes de começar.' },
+        { icon: 'bi bi-cup-hot', title: 'Conforto em cada etapa', text: 'Ambiente acolhedor e atendimento sem pressa para transformar cuidado em experiência.' },
+        { icon: 'bi bi-award', title: 'Resultado personalizado', text: 'Técnica e acabamento pensados para combinar com o seu rosto, cabelo e personalidade.' },
       ],
     };
   },
@@ -95,6 +113,10 @@ createApp({
     closeMenu() {
       const menu = document.getElementById('mainNav');
       if (menu?.classList.contains('show')) Collapse.getOrCreateInstance(menu).hide();
+    },
+    serviceWhatsappUrl(serviceName) {
+      const message = `Olá! Vim pelo site da Mr. Hélio Barbearia e gostaria de agendar: ${serviceName}.`;
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     },
     submitForm() {
       const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.form.email);

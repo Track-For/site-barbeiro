@@ -75,9 +75,9 @@
                   <a class="btn btn-outline-light btn-lg" href="#servicos">Conhecer serviços</a>
                 </div>
                 <div class="hero-proof" aria-label="Diferenciais da barbearia">
-                  <div><strong>+10</strong><span>anos de<br />experiência</span></div>
-                  <div><strong>4,9</strong><span>avaliação<br />dos clientes</span></div>
-                  <div><strong>100%</strong><span>foco no<br />seu estilo</span></div>
+                  <div><i class="bi bi-scissors"></i><span>Corte<br />sob medida</span></div>
+                  <div><i class="bi bi-gem"></i><span>Ambiente<br />premium</span></div>
+                  <div><i class="bi bi-people"></i><span>Atendimento<br />unissex</span></div>
                 </div>
               </div>
               <div class="col-lg-4 d-none d-lg-flex justify-content-end">
@@ -107,7 +107,7 @@
               <div class="col-lg-6 reveal">
                 <div class="about-photo">
                   <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1200&q=86" alt="Barbeiro trabalhando com precisão no corte de cabelo de um cliente" />
-                  <div class="photo-badge"><strong>Desde</strong><span>2014</span></div>
+                  <div class="photo-badge"><strong>Nossa</strong><span>História</span></div>
                 </div>
               </div>
               <div class="col-lg-6 reveal">
@@ -140,20 +140,46 @@
               </div>
             </div>
 
-            <div class="row g-4">
-              <div class="col-md-6 col-lg-4 reveal" v-for="(service, index) in services" :key="service.title">
-                <article class="service-card h-100">
-                  <div class="service-top">
-                    <span class="service-number">0{{ index + 1 }}</span>
-                    <i :class="service.icon"></i>
-                  </div>
+            <div class="service-showcase-grid">
+              <article class="service-showcase reveal" v-for="(service, index) in services" :key="service.title">
+                <img :src="service.image" :alt="service.alt" loading="lazy" />
+                <div class="service-showcase-shade"></div>
+                <div class="service-showcase-copy">
+                  <span>0{{ index + 1 }}</span>
+                  <i :class="service.icon"></i>
                   <h3>{{ service.title }}</h3>
                   <p>{{ service.description }}</p>
-                  <ul class="service-list">
-                    <li v-for="detail in service.details" :key="detail"><i class="bi bi-check2"></i>{{ detail }}</li>
-                  </ul>
                   <a :href="whatsappUrl" target="_blank" rel="noopener">Agendar serviço <i class="bi bi-arrow-up-right"></i></a>
-                </article>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="menu-section section-padding" aria-labelledby="menu-title">
+          <div class="container">
+            <div class="menu-shell">
+              <div class="menu-heading reveal">
+                <div>
+                  <p class="section-kicker">Nosso cardápio</p>
+                  <h2 id="menu-title">Escolha seu<br /><span>próximo cuidado.</span></h2>
+                </div>
+                <p>Todos os serviços são personalizados. Consulte valores e disponibilidade pelo WhatsApp.</p>
+              </div>
+
+              <div class="menu-list reveal">
+                <a v-for="item in serviceMenu" :key="item.name" :href="serviceWhatsappUrl(item.name)" target="_blank" rel="noopener">
+                  <span class="menu-icon"><i :class="item.icon"></i></span>
+                  <strong>{{ item.name }}</strong>
+                  <span class="menu-dots" aria-hidden="true"></span>
+                  <small>{{ item.duration }}</small>
+                  <i class="bi bi-arrow-up-right menu-arrow"></i>
+                </a>
+              </div>
+
+              <div class="menu-footer reveal">
+                <span><i class="bi bi-info-circle"></i> Tempo estimado sujeito a avaliação profissional.</span>
+                <a class="btn btn-gold" :href="whatsappUrl" target="_blank" rel="noopener">Consultar valores</a>
               </div>
             </div>
           </div>
@@ -173,8 +199,37 @@
           </div>
         </section>
 
+        <section class="experience-section section-padding" aria-labelledby="experience-title">
+          <div class="container">
+            <div class="text-center reveal">
+              <p class="section-kicker">A experiência Mr. Hélio</p>
+              <h2 id="experience-title">Mais que um corte.<br /><span>Um momento seu.</span></h2>
+            </div>
+            <div class="row g-4 mt-4">
+              <div class="col-md-4 reveal" v-for="(point, index) in experiencePoints" :key="point.title">
+                <article class="experience-card h-100">
+                  <span>0{{ index + 1 }}</span>
+                  <i :class="point.icon"></i>
+                  <h3>{{ point.title }}</h3>
+                  <p>{{ point.text }}</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="contato" class="contact-section section-padding section-observe">
           <div class="container">
+            <div class="location-banner reveal">
+              <div class="location-photo" role="img" aria-label="Interior sofisticado de uma barbearia"></div>
+              <div class="location-copy">
+                <p class="section-kicker">Nossa localização</p>
+                <h2>Vila Rosa,<br /><span>bem perto de você.</span></h2>
+                <p>Em frente ao Assaí Atacadista, com acesso fácil e uma equipe pronta para receber você.</p>
+                <a class="btn btn-outline-gold" href="https://maps.google.com/?q=Assaí+Atacadista+Vila+Rosa" target="_blank" rel="noopener"><i class="bi bi-geo-alt me-2"></i>Abrir no mapa</a>
+              </div>
+            </div>
+
             <div class="row g-5">
               <div class="col-lg-5 reveal">
                 <p class="section-kicker">Contato</p>
