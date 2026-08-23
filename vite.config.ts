@@ -24,7 +24,7 @@ export default defineConfig(async () => {
       cloudflare({
         config: {
           name: 'mr-helio-barbearia',
-          compatibility_date: '2026-08-22',
+          compatibility_date: '2026-05-22',
           assets: { not_found_handling: 'single-page-application' },
         },
       }),
