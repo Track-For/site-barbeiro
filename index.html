@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0b0a08" />
-    <meta
-      name="description"
-      content="Mr. Hélio Barbearia — cortes, barba e acabamento premium em Vila Rosa. Agende seu horário."
-    />
+    <meta name="description" content="Mr. Hélio Barbearia — cortes, barba e acabamento premium em Vila Rosa. Escolha seu barbeiro e agende pelo WhatsApp." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:url" content="https://mr-helio-barbearia.luizfhellippe.chatgpt.site" />
@@ -19,14 +16,12 @@
     <meta name="twitter:description" content="Cortes de precisão, barba alinhada e atendimento unissex em Vila Rosa." />
     <meta name="twitter:image" content="https://mr-helio-barbearia.luizfhellippe.chatgpt.site/og.png" />
     <link rel="canonical" href="https://mr-helio-barbearia.luizfhellippe.chatgpt.site" />
+    <link rel="icon" href="/assets/logo-mr-helio.png" type="image/png" />
     <title>Mr. Hélio Barbearia | Seu estilo, nossa missão</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://images.unsplash.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
@@ -36,7 +31,7 @@
       <nav :class="['navbar navbar-expand-lg navbar-dark fixed-top', { 'navbar-scrolled': isScrolled }]" aria-label="Navegação principal">
         <div class="container">
           <a class="navbar-brand" href="#home" aria-label="Mr. Hélio Barbearia - início">
-            <span class="brand-mark">MH</span>
+            <img class="brand-logo" src="/assets/logo-mr-helio.png" alt="" />
             <span class="brand-copy"><strong>MR. HÉLIO</strong><small>BARBEARIA</small></span>
           </a>
 
@@ -45,14 +40,12 @@
           </button>
 
           <div id="mainNav" class="collapse navbar-collapse justify-content-end">
-            <ul class="navbar-nav align-items-lg-center gap-lg-3">
+            <ul class="navbar-nav align-items-lg-center gap-lg-2">
               <li class="nav-item" v-for="item in navItems" :key="item.href">
                 <a :class="['nav-link', { active: activeSection === item.id }]" :href="item.href" @click="closeMenu">{{ item.label }}</a>
               </li>
               <li class="nav-item ms-lg-2 mt-3 mt-lg-0">
-                <a class="btn btn-gold btn-sm" :href="whatsappUrl" target="_blank" rel="noopener" aria-label="Agendar horário pelo WhatsApp">
-                  <i class="bi bi-whatsapp me-2"></i>Agendar horário
-                </a>
+                <a class="btn btn-gold btn-sm" :href="whatsappUrl" target="_blank" rel="noopener" aria-label="Agendar horário pelo WhatsApp"><i class="bi bi-whatsapp me-2"></i>Agendar horário</a>
               </li>
             </ul>
           </div>
@@ -66,28 +59,24 @@
             <div class="row align-items-end min-vh-100 py-5">
               <div class="col-lg-8 hero-content">
                 <p class="eyebrow mb-3"><span></span> Atendimento unissex em Vila Rosa</p>
-                <h1>Seu estilo.<br /><em>Nossa missão.</em></h1>
-                <p class="hero-lead">Cortes de precisão, barba alinhada e uma experiência feita para a sua melhor versão.</p>
+                <h1>Precisão em<br /><em>cada detalhe.</em></h1>
+                <p class="hero-lead">Cortes de precisão, barba alinhada e uma equipe pronta para cuidar da sua melhor versão.</p>
                 <div class="d-flex flex-wrap gap-3 mt-4">
-                  <a class="btn btn-gold btn-lg" :href="whatsappUrl" target="_blank" rel="noopener">
-                    <i class="bi bi-whatsapp me-2"></i>Agendar agora
-                  </a>
-                  <a class="btn btn-outline-light btn-lg" href="#servicos">Conhecer serviços</a>
+                  <a class="btn btn-gold btn-lg" href="#barbeiros"><i class="bi bi-people me-2"></i>Escolher barbeiro</a>
+                  <a class="btn btn-outline-light btn-lg" :href="whatsappUrl" target="_blank" rel="noopener">Falar com a recepção</a>
                 </div>
                 <div class="hero-proof" aria-label="Diferenciais da barbearia">
                   <div><i class="bi bi-scissors"></i><span>Corte<br />sob medida</span></div>
                   <div><i class="bi bi-gem"></i><span>Ambiente<br />premium</span></div>
-                  <div><i class="bi bi-people"></i><span>Atendimento<br />unissex</span></div>
+                  <div><i class="bi bi-people"></i><span>Equipe<br />especializada</span></div>
                 </div>
               </div>
               <div class="col-lg-4 d-none d-lg-flex justify-content-end">
-                <div class="hero-stamp" aria-hidden="true"><i class="bi bi-scissors"></i><span>Precisão<br />em cada<br />detalhe</span></div>
+                <div class="hero-logo-lockup" aria-hidden="true"><img src="/assets/logo-mr-helio.png" alt="" /></div>
               </div>
             </div>
           </div>
-          <a class="scroll-cue d-none d-md-flex" href="#sobre" aria-label="Ir para a seção Sobre nós">
-            <span>Descubra</span><i class="bi bi-arrow-down"></i>
-          </a>
+          <a class="scroll-cue d-none d-md-flex" href="#sobre" aria-label="Ir para a seção Sobre nós"><span>Descubra</span><i class="bi bi-arrow-down"></i></a>
         </section>
 
         <section class="feature-strip" aria-label="Nossos diferenciais">
@@ -106,8 +95,8 @@
             <div class="row g-5 align-items-center">
               <div class="col-lg-6 reveal">
                 <div class="about-photo">
-                  <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1200&q=86" alt="Barbeiro trabalhando com precisão no corte de cabelo de um cliente" />
-                  <div class="photo-badge"><strong>Nossa</strong><span>História</span></div>
+                  <img src="/assets/precisao-maxima.png" alt="Barbeiro da Mr. Hélio aparando a barba de um cliente com precisão" />
+                  <div class="photo-badge"><strong>Nossa</strong><span>Essência</span></div>
                 </div>
               </div>
               <div class="col-lg-6 reveal">
@@ -118,9 +107,7 @@
 
                 <div class="values-grid mt-5">
                   <article v-for="(value, index) in values" :key="value.title">
-                    <span>0{{ index + 1 }}</span>
-                    <h3>{{ value.title }}</h3>
-                    <p>{{ value.text }}</p>
+                    <span>0{{ index + 1 }}</span><h3>{{ value.title }}</h3><p>{{ value.text }}</p>
                   </article>
                 </div>
               </div>
@@ -131,13 +118,8 @@
         <section id="servicos" class="services-section section-padding section-observe">
           <div class="container">
             <div class="row align-items-end mb-5 reveal">
-              <div class="col-lg-8">
-                <p class="section-kicker">O que fazemos</p>
-                <h2>Serviços que elevam<br /><span>a sua presença.</span></h2>
-              </div>
-              <div class="col-lg-4">
-                <p class="section-intro mb-0">Técnica apurada, ferramentas de qualidade e atendimento atento em cada etapa.</p>
-              </div>
+              <div class="col-lg-8"><p class="section-kicker">O que fazemos</p><h2>Serviços que elevam<br /><span>a sua presença.</span></h2></div>
+              <div class="col-lg-4"><p class="section-intro mb-0">Técnica apurada, ferramentas de qualidade e atendimento atento em cada etapa.</p></div>
             </div>
 
             <div class="service-showcase-grid">
@@ -145,74 +127,72 @@
                 <img :src="service.image" :alt="service.alt" loading="lazy" />
                 <div class="service-showcase-shade"></div>
                 <div class="service-showcase-copy">
-                  <span>0{{ index + 1 }}</span>
-                  <i :class="service.icon"></i>
-                  <h3>{{ service.title }}</h3>
-                  <p>{{ service.description }}</p>
-                  <a :href="whatsappUrl" target="_blank" rel="noopener">Agendar serviço <i class="bi bi-arrow-up-right"></i></a>
+                  <span>0{{ index + 1 }}</span><i :class="service.icon"></i><h3>{{ service.title }}</h3><p>{{ service.description }}</p>
+                  <a :href="serviceWhatsappUrl(service.title)" target="_blank" rel="noopener">Agendar serviço <i class="bi bi-arrow-up-right"></i></a>
                 </div>
               </article>
             </div>
           </div>
         </section>
 
-        <section class="menu-section section-padding" aria-labelledby="menu-title">
+        <section id="barbeiros" class="team-section section-padding section-observe" aria-labelledby="team-title">
           <div class="container">
-            <div class="menu-shell">
-              <div class="menu-heading reveal">
-                <div>
-                  <p class="section-kicker">Nosso cardápio</p>
-                  <h2 id="menu-title">Escolha seu<br /><span>próximo cuidado.</span></h2>
-                </div>
-                <p>Todos os serviços são personalizados. Consulte valores e disponibilidade pelo WhatsApp.</p>
+            <div class="team-heading reveal">
+              <div><p class="section-kicker">Nosso time</p><h2 id="team-title">Escolha quem cuida<br /><span>do seu estilo.</span></h2></div>
+              <div class="team-heading-copy">
+                <p>Conheça os perfis da equipe e envie uma mensagem pronta para a recepção com o seu barbeiro de preferência.</p>
+                <span><i class="bi bi-whatsapp"></i> A recepção confirma o melhor horário para você.</span>
               </div>
+            </div>
 
-              <div class="menu-list reveal">
-                <a v-for="item in serviceMenu" :key="item.name" :href="serviceWhatsappUrl(item.name)" target="_blank" rel="noopener">
-                  <span class="menu-icon"><i :class="item.icon"></i></span>
-                  <strong>{{ item.name }}</strong>
-                  <span class="menu-dots" aria-hidden="true"></span>
-                  <small>{{ item.duration }}</small>
-                  <i class="bi bi-arrow-up-right menu-arrow"></i>
-                </a>
-              </div>
-
-              <div class="menu-footer reveal">
-                <span><i class="bi bi-info-circle"></i> Tempo estimado sujeito a avaliação profissional.</span>
-                <a class="btn btn-gold" :href="whatsappUrl" target="_blank" rel="noopener">Consultar valores</a>
+            <div class="row g-4">
+              <div class="col-xl-3 col-md-6 reveal" v-for="(barber, index) in barbers" :key="barber.name">
+                <article class="barber-card h-100">
+                  <div class="barber-photo" :style="{ '--barber-position': barber.position }" role="img" :aria-label="`Retrato ilustrativo de ${barber.name}, ${barber.role}`">
+                    <span class="barber-index">0{{ index + 1 }}</span><span class="barber-status"><i></i>Agenda aberta</span>
+                  </div>
+                  <div class="barber-copy">
+                    <p>{{ barber.role }}</p><h3>{{ barber.name }}</h3><span class="barber-specialty">{{ barber.specialty }}</span>
+                    <ul><li v-for="skill in barber.skills" :key="skill">{{ skill }}</li></ul>
+                    <a class="btn btn-barber" :href="barberWhatsappUrl(barber)" target="_blank" rel="noopener" :aria-label="`Pedir à recepção um horário com ${barber.name}`"><i class="bi bi-whatsapp"></i> Agendar com {{ barber.firstName }}</a>
+                  </div>
+                </article>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="cta-band">
-          <div class="container position-relative">
-            <div class="row align-items-center g-4">
-              <div class="col-lg-8 reveal">
-                <p>Pronto para renovar o visual?</p>
-                <h2>A sua melhor versão<br />começa aqui.</h2>
-              </div>
-              <div class="col-lg-4 text-lg-end reveal">
-                <a class="btn btn-dark-ink btn-lg" :href="whatsappUrl" target="_blank" rel="noopener"><i class="bi bi-whatsapp me-2"></i>Falar no WhatsApp</a>
-              </div>
+        <section class="menu-section section-padding" aria-labelledby="menu-title">
+          <div class="container"><div class="menu-shell">
+            <div class="menu-heading reveal">
+              <div><p class="section-kicker">Nosso cardápio</p><h2 id="menu-title">Escolha seu<br /><span>próximo cuidado.</span></h2></div>
+              <p>Todos os serviços são personalizados. Consulte valores e disponibilidade pelo WhatsApp.</p>
             </div>
-          </div>
+            <div class="menu-list reveal">
+              <a v-for="item in serviceMenu" :key="item.name" :href="serviceWhatsappUrl(item.name)" target="_blank" rel="noopener">
+                <span class="menu-icon"><i :class="item.icon"></i></span><strong>{{ item.name }}</strong><span class="menu-dots" aria-hidden="true"></span><small>{{ item.duration }}</small><i class="bi bi-arrow-up-right menu-arrow"></i>
+              </a>
+            </div>
+            <div class="menu-footer reveal">
+              <span><i class="bi bi-info-circle"></i> Tempo estimado sujeito à avaliação profissional.</span>
+              <a class="btn btn-gold" :href="whatsappUrl" target="_blank" rel="noopener">Consultar valores</a>
+            </div>
+          </div></div>
+        </section>
+
+        <section class="cta-band">
+          <div class="container position-relative"><div class="row align-items-center g-4">
+            <div class="col-lg-8 reveal"><p>Pronto para renovar o visual?</p><h2>A sua melhor versão<br />começa aqui.</h2></div>
+            <div class="col-lg-4 text-lg-end reveal"><a class="btn btn-dark-ink btn-lg" href="#barbeiros"><i class="bi bi-people me-2"></i>Conhecer a equipe</a></div>
+          </div></div>
         </section>
 
         <section class="experience-section section-padding" aria-labelledby="experience-title">
           <div class="container">
-            <div class="text-center reveal">
-              <p class="section-kicker">A experiência Mr. Hélio</p>
-              <h2 id="experience-title">Mais que um corte.<br /><span>Um momento seu.</span></h2>
-            </div>
+            <div class="text-center reveal"><p class="section-kicker">A experiência Mr. Hélio</p><h2 id="experience-title">Mais que um corte.<br /><span>Um momento seu.</span></h2></div>
             <div class="row g-4 mt-4">
               <div class="col-md-4 reveal" v-for="(point, index) in experiencePoints" :key="point.title">
-                <article class="experience-card h-100">
-                  <span>0{{ index + 1 }}</span>
-                  <i :class="point.icon"></i>
-                  <h3>{{ point.title }}</h3>
-                  <p>{{ point.text }}</p>
-                </article>
+                <article class="experience-card h-100"><span>0{{ index + 1 }}</span><i :class="point.icon"></i><h3>{{ point.title }}</h3><p>{{ point.text }}</p></article>
               </div>
             </div>
           </div>
@@ -223,58 +203,35 @@
             <div class="location-banner reveal">
               <div class="location-photo" role="img" aria-label="Interior sofisticado de uma barbearia"></div>
               <div class="location-copy">
-                <p class="section-kicker">Nossa localização</p>
-                <h2>Vila Rosa,<br /><span>bem perto de você.</span></h2>
+                <p class="section-kicker">Nossa localização</p><h2>Vila Rosa,<br /><span>bem perto de você.</span></h2>
                 <p>Em frente ao Assaí Atacadista, com acesso fácil e uma equipe pronta para receber você.</p>
-                <a class="btn btn-outline-gold" href="https://maps.google.com/?q=Assaí+Atacadista+Vila+Rosa" target="_blank" rel="noopener"><i class="bi bi-geo-alt me-2"></i>Abrir no mapa</a>
+                <a class="btn btn-outline-gold" href="https://maps.google.com/?q=Assa%C3%AD+Atacadista+Vila+Rosa" target="_blank" rel="noopener"><i class="bi bi-geo-alt me-2"></i>Abrir no mapa</a>
               </div>
             </div>
 
             <div class="row g-5">
               <div class="col-lg-5 reveal">
-                <p class="section-kicker">Contato</p>
-                <h2>Seu horário,<br /><span>do seu jeito.</span></h2>
+                <p class="section-kicker">Contato</p><h2>Seu horário,<br /><span>do seu jeito.</span></h2>
                 <p class="section-intro">Envie uma mensagem ou fale direto com a nossa equipe. Será um prazer receber você.</p>
-
                 <div class="contact-list">
-                  <a href="https://maps.google.com/?q=Assaí+Atacadista+Vila+Rosa" target="_blank" rel="noopener">
-                    <i class="bi bi-geo-alt"></i><span><small>Localização</small>Em frente ao Assaí Atacadista<br />Vila Rosa</span>
-                  </a>
-                  <a :href="whatsappUrl" target="_blank" rel="noopener">
-                    <i class="bi bi-whatsapp"></i><span><small>WhatsApp</small>(62) 99999-9999</span>
-                  </a>
-                  <div>
-                    <i class="bi bi-clock"></i><span><small>Horário</small>Seg a sáb, 9h às 20h</span>
-                  </div>
+                  <a href="https://maps.google.com/?q=Assa%C3%AD+Atacadista+Vila+Rosa" target="_blank" rel="noopener"><i class="bi bi-geo-alt"></i><span><small>Localização</small>Em frente ao Assaí Atacadista<br />Vila Rosa</span></a>
+                  <a :href="whatsappUrl" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i><span><small>WhatsApp</small>(62) 99999-9999</span></a>
+                  <div><i class="bi bi-clock"></i><span><small>Horário</small>Seg a sáb, 9h às 20h</span></div>
                 </div>
               </div>
 
               <div class="col-lg-7 reveal">
                 <form class="contact-form" @submit.prevent="submitForm" novalidate>
-                  <div class="form-heading">
-                    <span>Vamos conversar</span>
-                    <i class="bi bi-chat-dots"></i>
-                  </div>
+                  <div class="form-heading"><span>Vamos conversar</span><i class="bi bi-chat-dots"></i></div>
                   <div class="row g-4">
-                    <div class="col-md-6">
-                      <label for="name" class="form-label">Nome</label>
-                      <input id="name" v-model.trim="form.name" type="text" class="form-control" autocomplete="name" placeholder="Seu nome" required />
-                    </div>
-                    <div class="col-md-6">
-                      <label for="email" class="form-label">E-mail</label>
-                      <input id="email" v-model.trim="form.email" type="email" class="form-control" autocomplete="email" placeholder="voce@email.com" required />
-                    </div>
-                    <div class="col-12">
-                      <label for="message" class="form-label">Mensagem</label>
-                      <textarea id="message" v-model.trim="form.message" class="form-control" rows="5" placeholder="Conte como podemos ajudar" required></textarea>
-                    </div>
+                    <div class="col-md-6"><label for="name" class="form-label">Nome</label><input id="name" v-model.trim="form.name" type="text" class="form-control" autocomplete="name" placeholder="Seu nome" required /></div>
+                    <div class="col-md-6"><label for="email" class="form-label">E-mail</label><input id="email" v-model.trim="form.email" type="email" class="form-control" autocomplete="email" placeholder="voce@email.com" required /></div>
+                    <div class="col-12"><label for="message" class="form-label">Mensagem</label><textarea id="message" v-model.trim="form.message" class="form-control" rows="5" placeholder="Conte como podemos ajudar" required></textarea></div>
                     <div class="col-12 d-flex flex-wrap align-items-center gap-3">
                       <button type="submit" class="btn btn-gold btn-lg"><i class="bi bi-send me-2"></i>Enviar mensagem</button>
                       <span v-if="formError" class="form-feedback error" role="alert">Preencha todos os campos corretamente.</span>
                     </div>
-                    <div v-if="formSent" class="col-12" aria-live="polite">
-                      <div class="form-feedback success"><i class="bi bi-check-circle-fill"></i> Mensagem preparada! Abrimos o WhatsApp para concluir o envio.</div>
-                    </div>
+                    <div v-if="formSent" class="col-12" aria-live="polite"><div class="form-feedback success"><i class="bi bi-check-circle-fill"></i> Mensagem preparada! Abrimos o WhatsApp para concluir o envio.</div></div>
                   </div>
                 </form>
               </div>
@@ -286,19 +243,11 @@
       <footer>
         <div class="container">
           <div class="footer-main">
-            <a class="navbar-brand" href="#home" aria-label="Voltar ao início">
-              <span class="brand-mark">MH</span><span class="brand-copy"><strong>MR. HÉLIO</strong><small>BARBEARIA</small></span>
-            </a>
+            <a class="navbar-brand" href="#home" aria-label="Voltar ao início"><img class="brand-logo" src="/assets/logo-mr-helio.png" alt="" /><span class="brand-copy"><strong>MR. HÉLIO</strong><small>BARBEARIA</small></span></a>
             <p>Estilo, confiança e atitude.<br />Para todos. Sempre.</p>
-            <div class="social-links">
-              <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-              <a :href="whatsappUrl" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
-            </div>
+            <div class="social-links"><a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a><a :href="whatsappUrl" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a></div>
           </div>
-          <div class="footer-bottom">
-            <span>© {{ currentYear }} Mr. Hélio Barbearia.</span>
-            <span>Feito com precisão, como todo bom corte.</span>
-          </div>
+          <div class="footer-bottom"><span>© {{ currentYear }} Mr. Hélio Barbearia.</span><span>Feito com precisão, como todo bom corte.</span></div>
         </div>
       </footer>
 

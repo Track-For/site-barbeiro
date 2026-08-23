@@ -15,6 +15,7 @@ createApp({
         { id: 'home', label: 'Home', href: '#home' },
         { id: 'sobre', label: 'Sobre nós', href: '#sobre' },
         { id: 'servicos', label: 'Serviços', href: '#servicos' },
+        { id: 'barbeiros', label: 'Barbeiros', href: '#barbeiros' },
         { id: 'contato', label: 'Contato', href: '#contato' },
       ],
       features: [
@@ -37,7 +38,7 @@ createApp({
         },
         {
           icon: 'bi bi-person',
-          title: 'Barba & alinhamento',
+          title: 'Barba e alinhamento',
           description: 'Contorno preciso, volume equilibrado e cuidado completo para uma barba bem apresentada.',
           image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1100&q=88',
           alt: 'Cliente recebendo um serviço profissional de barba',
@@ -48,6 +49,40 @@ createApp({
           description: 'Os últimos detalhes que transformam um bom visual em uma presença marcante.',
           image: 'https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?auto=format&fit=crop&w=1100&q=88',
           alt: 'Profissional finalizando o visual de um cliente na barbearia',
+        },
+      ],
+      barbers: [
+        {
+          name: 'Gabriel Nunes',
+          firstName: 'Gabriel',
+          role: 'Barbeiro especialista',
+          specialty: 'Fade e cortes modernos',
+          skills: ['Degradê', 'Corte social', 'Finalização'],
+          position: '0%',
+        },
+        {
+          name: 'Lucas Ferreira',
+          firstName: 'Lucas',
+          role: 'Barbeiro e visagista',
+          specialty: 'Estilo sob medida',
+          skills: ['Visagismo', 'Corte na tesoura', 'Sobrancelha'],
+          position: '33.333%',
+        },
+        {
+          name: 'Marcos Oliveira',
+          firstName: 'Marcos',
+          role: 'Barbeiro sênior',
+          specialty: 'Clássicos e barba',
+          skills: ['Barba completa', 'Corte clássico', 'Camuflagem'],
+          position: '66.666%',
+        },
+        {
+          name: 'André Santos',
+          firstName: 'André',
+          role: 'Barbeiro especialista',
+          specialty: 'Barba e acabamento',
+          skills: ['Barboterapia', 'Pezinho', 'Corte + barba'],
+          position: '100%',
         },
       ],
       serviceMenu: [
@@ -115,7 +150,15 @@ createApp({
       if (menu?.classList.contains('show')) Collapse.getOrCreateInstance(menu).hide();
     },
     serviceWhatsappUrl(serviceName) {
-      const message = `Olá! Vim pelo site da Mr. Hélio Barbearia e gostaria de agendar: ${serviceName}.`;
+      const message = `Olá! Vim pelo site da Mr. Hélio Barbearia e gostaria de agendar o serviço: ${serviceName}.`;
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    },
+    barberWhatsappUrl(barber) {
+      const message = [
+        'Olá! Vim pelo site da Mr. Hélio Barbearia.',
+        `Gostaria de agendar um horário com ${barber.name}, especialista em ${barber.specialty.toLowerCase()}.`,
+        'Pode me informar os próximos horários disponíveis, por favor?',
+      ].join('\n');
       return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     },
     submitForm() {
