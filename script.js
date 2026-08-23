@@ -8,6 +8,7 @@ createApp({
     return {
       activeSection: 'home',
       isScrolled: false,
+      motionFrame: null,
       formSent: false,
       formError: false,
       form: { name: '', email: '', message: '' },
@@ -114,6 +115,7 @@ createApp({
   mounted() {
     this.handleScroll();
     window.addEventListener('scroll', this.handleScroll, { passive: true });
+    requestAnimationFrame(() => document.documentElement.classList.add('motion-ready'));
 
     const sectionObserver = new IntersectionObserver(
       (entries) => {
@@ -140,10 +142,24 @@ createApp({
   },
   beforeUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
+    if (this.motionFrame) cancelAnimationFrame(this.motionFrame);
+    document.documentElement.classList.remove('motion-ready');
   },
   methods: {
     handleScroll() {
-      this.isScrolled = window.scrollY > 24;
+      if (this.motionFrame) return;
+
+      this.motionFrame = requestAnimationFrame(() => {
+        const scrollTop = window.scrollY;
+        const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+        const progress = Math.min(scrollTop / maxScroll, 1);
+        const heroShift = Math.min(scrollTop * 0.07, 42);
+
+        this.isScrolled = scrollTop > 24;
+        document.documentElement.style.setProperty('--scroll-progress', progress.toFixed(4));
+        document.documentElement.style.setProperty('--hero-shift', `${heroShift}px`);
+        this.motionFrame = null;
+      });
     },
     closeMenu() {
       const menu = document.getElementById('mainNav');
