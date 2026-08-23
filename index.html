@@ -28,6 +28,7 @@
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
     <div id="app" v-cloak>
+      <div class="cinema-curtain" aria-hidden="true"><span></span><span></span></div>
       <div class="scroll-progress" aria-hidden="true"><span></span></div>
       <nav :class="['navbar navbar-expand-lg navbar-dark fixed-top', { 'navbar-scrolled': isScrolled }]" aria-label="Navegação principal">
         <div class="container">
@@ -56,6 +57,7 @@
       <main id="conteudo">
         <section id="home" class="hero d-flex align-items-end section-observe">
           <div class="hero-noise" aria-hidden="true"></div>
+          <div class="hero-spotlight" aria-hidden="true"></div>
           <div class="hero-frame" aria-hidden="true">
             <span>MRH — 01</span>
             <span>VILA ROSA • GO</span>
@@ -87,7 +89,7 @@
         <section class="feature-strip" aria-label="Nossos diferenciais">
           <div class="container">
             <div class="row g-0">
-              <div class="col-md-4 feature-item" v-for="feature in features" :key="feature.title">
+              <div class="col-md-4 feature-item reveal" v-for="feature in features" :key="feature.title">
                 <i :class="feature.icon"></i>
                 <div><strong>{{ feature.title }}</strong><span>{{ feature.text }}</span></div>
               </div>
@@ -99,7 +101,7 @@
           <div class="container">
             <div class="row g-5 align-items-center">
               <div class="col-lg-6 reveal">
-                <div class="about-photo">
+                <div class="about-photo" data-parallax="0.7">
                   <img src="/assets/precisao-maxima.png" alt="Barbeiro da Mr. Hélio aparando a barba de um cliente com precisão" />
                   <div class="photo-badge"><strong>Nossa</strong><span>Essência</span></div>
                 </div>
@@ -128,7 +130,7 @@
             </div>
 
             <div class="service-showcase-grid">
-              <article class="service-showcase reveal" v-for="(service, index) in services" :key="service.title">
+              <article class="service-showcase motion-card reveal" data-parallax="0.55" v-for="(service, index) in services" :key="service.title">
                 <img :src="service.image" :alt="service.alt" loading="lazy" />
                 <div class="service-showcase-shade"></div>
                 <div class="service-showcase-copy">
@@ -152,7 +154,7 @@
 
             <div class="row g-4">
               <div class="col-xl-3 col-md-6 reveal" v-for="(barber, index) in barbers" :key="barber.name">
-                <article class="barber-card h-100">
+                <article class="barber-card motion-card h-100">
                   <div class="barber-photo" :style="{ '--barber-position': barber.position }" role="img" :aria-label="`Retrato ilustrativo de ${barber.name}, ${barber.role}`">
                     <span class="barber-index">0{{ index + 1 }}</span><span class="barber-status"><i></i>Agenda aberta</span>
                   </div>
@@ -197,7 +199,7 @@
             <div class="text-center reveal"><p class="section-kicker">A experiência Mr. Hélio</p><h2 id="experience-title">Mais que um corte.<br /><span>Um momento seu.</span></h2></div>
             <div class="row g-4 mt-4">
               <div class="col-md-4 reveal" v-for="(point, index) in experiencePoints" :key="point.title">
-                <article class="experience-card h-100"><span>0{{ index + 1 }}</span><i :class="point.icon"></i><h3>{{ point.title }}</h3><p>{{ point.text }}</p></article>
+                <article class="experience-card motion-card h-100"><span>0{{ index + 1 }}</span><i :class="point.icon"></i><h3>{{ point.title }}</h3><p>{{ point.text }}</p></article>
               </div>
             </div>
           </div>
@@ -205,7 +207,7 @@
 
         <section id="contato" class="contact-section section-padding section-observe">
           <div class="container">
-            <div class="location-banner reveal">
+            <div class="location-banner reveal" data-parallax="0.45">
               <div class="location-photo" role="img" aria-label="Interior sofisticado de uma barbearia"></div>
               <div class="location-copy">
                 <p class="section-kicker">Nossa localização</p><h2>Vila Rosa,<br /><span>bem perto de você.</span></h2>
